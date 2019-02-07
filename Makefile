@@ -113,7 +113,8 @@ staticcheck: $(SOURCES)
 # G104 ignoring errors are in few cases fine
 # G304 reading kubernetes secret filepaths are not a file inclusions
 gosec: $(SOURCES)
-	GO111MODULE=on gosec -quiet -exclude="G101,G104,G304" $(PACKAGES) 2>/dev/null
+	GO111MODULE=on gosec -exclude="G101,G104,G304" $(PACKAGES)
+	#GO111MODULE=on gosec -quiet -exclude="G101,G104,G304" $(PACKAGES) 2>/dev/null
 
 fmt: $(SOURCES)
 	@gofmt -w -s $(SOURCES)
