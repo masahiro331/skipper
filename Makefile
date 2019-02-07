@@ -89,12 +89,12 @@ deps:
 	@mkdir -p $(GOPATH)/bin
 	@mv /tmp/staticcheck $(GOPATH)/bin/
 	@chmod +x $(GOPATH)/bin/staticcheck
-	@curl -o /tmp/gosec.tgz -LO https://github.com/securego/gosec/releases/download/1.2.0/gosec_1.2.0_linux_amd64.tar.gz
-	@sha256sum /tmp/gosec.tgz | grep -q be293e72ee8e3faa4a4e8854834330d90bf4b6afa9a6a46358bb63690d6573ca
-	@tar -C /tmp -xzf /tmp/gosec.tgz
-	@mkdir -p $(GOPATH)/bin
-	@mv /tmp/gosec $(GOPATH)/bin/
-	@chmod +x $(GOPATH)/bin/gosec
+	curl -o /tmp/gosec.tgz -LO https://github.com/securego/gosec/releases/download/1.2.0/gosec_1.2.0_linux_amd64.tar.gz
+	sha256sum /tmp/gosec.tgz | grep -q be293e72ee8e3faa4a4e8854834330d90bf4b6afa9a6a46358bb63690d6573ca
+	tar -C /tmp -xzf /tmp/gosec.tgz
+	mkdir -p $(GOPATH)/bin
+	mv /tmp/gosec $(GOPATH)/bin/
+	chmod +x $(GOPATH)/bin/gosec
 
 vet: $(SOURCES)
 	GO111MODULE=on go vet $(PACKAGES)
