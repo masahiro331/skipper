@@ -95,6 +95,8 @@ deps:
 	mkdir -p $(GOPATH)/bin
 	mv /tmp/gosec $(GOPATH)/bin/
 	chmod +x $(GOPATH)/bin/gosec
+	ls -l $(GOPATH)/bin/gosec
+	file $(GOPATH)/bin/gosec
 
 vet: $(SOURCES)
 	GO111MODULE=on go vet $(PACKAGES)
