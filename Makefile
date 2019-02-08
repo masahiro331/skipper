@@ -95,8 +95,7 @@ deps:
 	@mkdir -p $(GOPATH)/bin
 	@mv /tmp/gosec $(GOPATH)/bin/
 	@chmod +x $(GOPATH)/bin/gosec
-	@cp -a $(GOPATH)/bin/gosec $(GOBIN)/gosec
-	ls -l $(GOPATH)/bin/gosec $(GOBIN)/gosec
+	@which gosec || cp -a $(GOPATH)/bin/gosec $(GOBIN)/gosec
 
 vet: $(SOURCES)
 	GO111MODULE=on go vet $(PACKAGES)
